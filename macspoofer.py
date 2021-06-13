@@ -10,6 +10,8 @@ parser.add_option(
   help="A network interface name whose MAC address will be changed" # If a user needs help. please display this to explain what '-i' and '--interface' are for.
 )
 
+parser.parse_args()
+
 # Name of interface
 interface = input("network interface > ")
 
