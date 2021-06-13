@@ -1,4 +1,8 @@
 import subprocess
+import optparse
+
+# Create an instance for the OptionParser
+parser = optparse.OptionParser()
 
 # Name of interface
 interface = input("network interface > ")
