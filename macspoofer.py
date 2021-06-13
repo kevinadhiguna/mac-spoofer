@@ -31,11 +31,15 @@ new_mac_address = options.new_mac_address
 
 print("[+] Changing MAC address for " + interface + " to " + new_mac_address)
 
-# Run 'ifconfig wlan0 down' command in shell to deactivate a network interface named wlan0
-subprocess.call(["ifconfig", interface, "down"])
-
-# Changing MAC address
-subprocess.call(["ifconfig", interface, "hw", "ether", new_mac_address])
-
-# Activate wlan0 network interface
-subprocess.call(["ifconfig", interface, "up"])
+def spoof_mac_address(interface, new_mac_address):
+  """
+  A function to spoof MAC address.
+  """
+  # Run 'ifconfig wlan0 down' command in shell to deactivate a network interface named wlan0
+  subprocess.call(["ifconfig", interface, "down"])
+  
+  # Changing MAC address
+  subprocess.call(["ifconfig", interface, "hw", "ether", new_mac_address])
+  
+  # Activate wlan0 network interface
+  subprocess.call(["ifconfig", interface, "up"])
