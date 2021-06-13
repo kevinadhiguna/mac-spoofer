@@ -10,6 +10,12 @@ parser.add_option(
   help="A network interface name whose MAC address will be changed" # If a user needs help. please display this to explain what '-i' and '--interface' are for.
 )
 
+parser.add_option(
+  "-m", "--mac",              # A parameter which will be initialized before storing a new MAC address.
+  dest="new_mac_address",     # Store the value that comes after '-m' or '--mac' to a variable called 'new_mac_address'.
+  help="A new MAC address"    # If a user needs help. please display this to explain what '-m' and '--mac' are for.
+)
+
 parser.parse_args()
 
 # Name of interface
