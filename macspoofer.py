@@ -3,8 +3,14 @@ import subprocess
 # Name of interface
 interface = input("network interface > ")
 
+# -- for Python 2.7 --
+# interface = raw_input("network interface > ")
+
 # Set a new MAC address
 new_mac_address = input("new MAC address >")
+
+# -- for Python 2.7 --
+# new_mac_address = raw_input("new MAC address >")
 
 print("[+] Changing MAC address for " + interface + " to " + new_mac_address)
 
