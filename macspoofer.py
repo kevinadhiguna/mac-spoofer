@@ -4,6 +4,12 @@ import optparse
 # Create an instance for the OptionParser
 parser = optparse.OptionParser()
 
+parser.add_option(
+  "-i", "--interface",  # A parameter which will be initialized before storing a network interface name.
+  dest="interface",     # Store the value that comes after '-i' or '--interface' to a variable called 'interface'.
+  help="A network interface name whose MAC address will be changed" # If a user needs help. please display this to explain what '-i' and '--interface' are for.
+)
+
 # Name of interface
 interface = input("network interface > ")
 
