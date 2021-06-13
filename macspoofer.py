@@ -16,13 +16,14 @@ parser.add_option(
   help="A new MAC address"    # If a user needs help. please display this to explain what '-m' and '--mac' are for.
 )
 
-parser.parse_args()
+# 'parse_args()' will return options(e.g.: -i, --mac) and arguments(e.g.: 'wlan0', '00:11:22:33:44:55')
+(options, arguments) = parser.parse_args()
 
-# Name of interface
-interface = input("network interface > ")
+# Set name of interface to 'dest' in interface option
+interface = options.interface
 
-# Set a new MAC address
-new_mac_address = input("new MAC address >")
+# Set a new MAC address to 'dest' in new MAC address option
+new_mac_address = options.new_mac_address
 
 # -- for Python 2.7 --
 # interface = raw_input("network interface > ")
