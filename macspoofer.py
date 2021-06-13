@@ -1,5 +1,8 @@
 import subprocess
 
+# Name of interface
+interface = "wlan0"
+
 # Run 'ifconfig wlan0 down' command in shell to deactivate a network interface named wlan0
 subprocess.call("ifconfig wlan0 down", shell=True)
 
