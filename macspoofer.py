@@ -63,9 +63,10 @@ def get_current_mac_address(interface):
   # Error handling to make sure whether the network interface has a MAC address or not (e.g. : 'lo' is a network interface but it has no MAC address).
   if mac_address_search_result:
     # Display the first occurrence of the search result
-    print("[+] Voila! This is the spoofed MAC address : " + mac_address_search_result.group[0])
+    return mac_address_search_result.group[0]
   else:
     print("[-] Oops... could not read MAC address. Please check your network interface name and try again.")
 
-# Call the function to get current MAC address
-get_current_mac_address(options.interface)
+# Call the function to get current MAC address and display it
+current_mac_address = get_current_mac_address(options.interface)
+print("[+] Voila! This is the spoofed MAC address : " + current_mac_address)
