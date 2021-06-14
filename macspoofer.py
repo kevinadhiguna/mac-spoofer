@@ -20,12 +20,21 @@ def get_arguments():
   )
 
   # 'parse_args()' will return options(e.g.: -i, --mac) and arguments(e.g.: 'wlan0', '00:11:22:33:44:55')
-  return parser.parse_args()
+  (options, argumemnts) = parser.parse_args()
+
+  # Error handling
+  if not options.interface:
+    parser.error("[-] Please specify a network interface! You can use '--help' for more options.")
+  elif not options.new_mac_addres:
+    parser.error("[-] Please specify a new MAC address! You can use '--help' for more options.")
+  return options
 
 def spoof_mac_address(interface, new_mac_address):
   """
   A function to spoof MAC address.
   """
+  print("[+] Changing the MAC address for " + interface + " to " + new_mac_address + " ...")
+
   # Run 'ifconfig wlan0 down' command in shell to deactivate a network interface named wlan0
   subprocess.call(["ifconfig", interface, "down"])
   
@@ -35,7 +44,7 @@ def spoof_mac_address(interface, new_mac_address):
   # Activate wlan0 network interface
   subprocess.call(["ifconfig", interface, "up"])
 
-(options, argumemnts) = get_arguments()
+options = get_arguments()
 
 # Call the function to change MAC address and passing the required arguments
 spoof_mac_address(options.interface, options.new_mac_address)
