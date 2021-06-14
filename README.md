@@ -15,7 +15,7 @@
 
 In fact, a MAC address can not be changed but can be spoofed.
 
-## How to use
+## 📖 How to use
 
 ```bash
 python3 macspoofer.py -i <name_of_network_interface> -m <new_mac_address>
@@ -27,6 +27,6 @@ For example :
 python3 macspoofer.py -i wlan0 -m F4:67:45:3D:BB:4C
 ```
 
-🚧 Currently in development phase
+🚧 Currently only supports Linux-based OS, PRs are welcome :)
 
 [![Visits Badge](https://badges.pufler.dev/visits/kevinadhiguna/mac-spoofer)](https://github.com/kevinadhiguna)
