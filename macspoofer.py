@@ -65,8 +65,11 @@ def get_current_mac_address(interface):
     # Display the first occurrence of the search result
     return mac_address_search_result.group[0]
   else:
+    # Note: this will return a NoneType. So the type need to be converted to string in order to concatenate it with string.
     print("[-] Oops... could not read MAC address. Please check your network interface name and try again.")
 
-# Call the function to get current MAC address and display it
+# Call the function to get current MAC address
 current_mac_address = get_current_mac_address(options.interface)
-print("[+] Voila! This is the spoofed MAC address : " + current_mac_address)
+
+# Convert the return type of 'current_mac_address' variable to string in order to concatenate it with string. Then display it.
+print("[+] Current MAC address : " + str(current_mac_address))
