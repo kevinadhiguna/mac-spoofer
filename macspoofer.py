@@ -77,3 +77,9 @@ spoof_mac_address(options.interface, options.new_mac_address)
 
 # Call the function to get current MAC address
 current_mac_address = get_current_mac_address(options.interface)
+
+# Display a message to a user whether the MAC address has been successfully spoofed or not
+if current_mac_address == options.new_mac_address :
+  print("[+] Voila! This is the spoofed MAC address : " + current_mac_address)
+else:
+  print("[-] MAC address was not spoofed successfully...")
