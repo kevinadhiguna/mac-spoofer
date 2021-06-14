@@ -1,5 +1,6 @@
 import subprocess
 import optparse
+import re
 
 def get_arguments():
   """
@@ -52,3 +53,9 @@ spoof_mac_address(options.interface, options.new_mac_address)
 # Display a changed MAC address
 ifconfig_result = subprocess.check_output(["ifconfig", options.interface])
 print(ifconfig_result)
+
+# Regular Expression pattern for MAC address in ifconfig command
+mac_address_search_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", ifconfig_result)
+
+# Display the first occurrence of the search result
+print("[+] Voila! This is the spoofed MAC address : " + mac_address_search_result.group[0])
