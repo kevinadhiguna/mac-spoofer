@@ -26,7 +26,7 @@ def get_arguments():
   # Error handling
   if not options.interface:
     parser.error("[-] Please specify a network interface! You can use '--help' for more options.")
-  elif not options.new_mac_addres:
+  elif not options.new_mac_address:
     parser.error("[-] Please specify a new MAC address! You can use '--help' for more options.")
   return options
 
@@ -63,13 +63,17 @@ def get_current_mac_address(interface):
     # Note: this will return a NoneType. So the type need to be converted to string in order to concatenate it with string.
     print("[-] Oops... could not read MAC address. Please check your network interface name and try again.")
 
+# Get arguments that a user enters
 options = get_arguments()
-
-# Call the function to change MAC address and passing the required arguments
-spoof_mac_address(options.interface, options.new_mac_address)
 
 # Call the function to get current MAC address
 current_mac_address = get_current_mac_address(options.interface)
 
 # Convert the return type of 'current_mac_address' variable to string in order to concatenate it with string. Then display it.
 print("[+] Current MAC address : " + str(current_mac_address))
+
+# Call the function to change MAC address and passing the required arguments
+spoof_mac_address(options.interface, options.new_mac_address)
+
+# Call the function to get current MAC address
+current_mac_address = get_current_mac_address(options.interface)
