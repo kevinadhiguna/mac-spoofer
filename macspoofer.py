@@ -45,11 +45,6 @@ def spoof_mac_address(interface, new_mac_address):
   # Activate wlan0 network interface
   subprocess.call(["ifconfig", interface, "up"])
 
-options = get_arguments()
-
-# Call the function to change MAC address and passing the required arguments
-spoof_mac_address(options.interface, options.new_mac_address)
-
 def get_current_mac_address(interface):
   """
   a function to get current MAC address
@@ -67,6 +62,11 @@ def get_current_mac_address(interface):
   else:
     # Note: this will return a NoneType. So the type need to be converted to string in order to concatenate it with string.
     print("[-] Oops... could not read MAC address. Please check your network interface name and try again.")
+
+options = get_arguments()
+
+# Call the function to change MAC address and passing the required arguments
+spoof_mac_address(options.interface, options.new_mac_address)
 
 # Call the function to get current MAC address
 current_mac_address = get_current_mac_address(options.interface)
