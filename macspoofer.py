@@ -48,3 +48,7 @@ options = get_arguments()
 
 # Call the function to change MAC address and passing the required arguments
 spoof_mac_address(options.interface, options.new_mac_address)
+
+# Display a changed MAC address
+ifconfig_result = subprocess.check_output(["ifconfig", options.interface])
+print(ifconfig_result)
