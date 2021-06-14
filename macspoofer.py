@@ -50,16 +50,22 @@ options = get_arguments()
 # Call the function to change MAC address and passing the required arguments
 spoof_mac_address(options.interface, options.new_mac_address)
 
-# Display a changed MAC address
-ifconfig_result = subprocess.check_output(["ifconfig", options.interface])
-print(ifconfig_result)
+def get_current_mac_address(interface):
+  """
+  a function to get current MAC address
+  """
+  # Display a changed MAC address
+  ifconfig_result = subprocess.check_output(["ifconfig", interface])
 
-# Regular Expression pattern for MAC address in ifconfig command
-mac_address_search_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", ifconfig_result)
+  # Regular Expression pattern for MAC address in ifconfig command
+  mac_address_search_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", ifconfig_result)
 
-# Error handling to make sure whether the network interface has a MAC address or not (e.g. : 'lo' is a network interface but it has no MAC address).
-if mac_address_search_result:
-  # Display the first occurrence of the search result
-  print("[+] Voila! This is the spoofed MAC address : " + mac_address_search_result.group[0])
-else:
-  print("[-] Oops... could not read MAC address. Please check your network interface name and try again.")
+  # Error handling to make sure whether the network interface has a MAC address or not (e.g. : 'lo' is a network interface but it has no MAC address).
+  if mac_address_search_result:
+    # Display the first occurrence of the search result
+    print("[+] Voila! This is the spoofed MAC address : " + mac_address_search_result.group[0])
+  else:
+    print("[-] Oops... could not read MAC address. Please check your network interface name and try again.")
+
+# Call the function to get current MAC address
+get_current_mac_address(options.interface)
