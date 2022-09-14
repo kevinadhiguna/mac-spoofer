@@ -13,9 +13,11 @@
   </p>
 </div>
 
-In fact, a MAC address can not be changed but can be spoofed.
+<br />
 
 ## 📖 How to use
+
+In fact, a MAC address can not be changed but can be spoofed.
 
 ```bash
 python3 macspoofer.py -i <name_of_network_interface> -m <new_mac_address>
@@ -28,5 +30,7 @@ python3 macspoofer.py -i wlan0 -m F4:67:45:3D:BB:4C
 ```
 
 🚧 Currently only supports Linux-based OS, PRs are welcome :)
+
+<br />
 
 ![Hello !](https://api.visitorbadge.io/api/VisitorHit?user=kevinadhiguna&repo=mac-spoofer&label=thanks%20for%20dropping%20in%20!&labelColor=%23000000&countColor=%23FFFFFF)
